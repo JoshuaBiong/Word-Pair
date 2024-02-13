@@ -15,22 +15,21 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _buildList() {
     return ListView.builder(
-      padding: const EdgeInsets.all(8),
-      itemBuilder: (context, item) {
-        if (item.isOdd) return const Divider();
-        final index = item ~/ 2;
-        if (index >= _randomWords.length) {
-          _randomWords.addAll(generateWordPairs().take(10));
-        }
+        padding: const EdgeInsets.all(8),
+        itemBuilder: (context, item) {
+          if (item.isOdd) return const Divider();
+          final index = item ~/ 2;
+          if (index >= _randomWords.length) {
+            _randomWords.addAll(generateWordPairs().take(10));
+          }
 
-        return _buildRow(_randomWords[index]);
-      },
-    );
+          return _buildRow(_randomWords[index]);
+        });
   }
 
   Widget _buildRow(WordPair pair) {
-    return const ListTile(
-      title: Text("generate Word Pair! "),
+    return ListTile(
+      title: Text(pair.toString()),
     );
   }
 
